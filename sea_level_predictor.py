@@ -9,12 +9,11 @@ def draw_plot():
     # Create scatter plot
     plt.scatter(x='Year', y='CSIRO Adjusted Sea Level', data=df)
  
-
     # Create first line of best fit
-
-
+    res = linregress(x=df['Year'], y=df['CSIRO Adjusted Sea Level'])
+    plt.plot(df.Year, res.intercept + res.slope*df.Year, 'g')
+    
     # Create second line of best fit
-
 
     # Add labels and title
     plt.title('Rise in Sea Level')
